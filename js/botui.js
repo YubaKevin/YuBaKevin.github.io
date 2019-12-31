@@ -143,11 +143,11 @@ function bot_ui_ini() {
         fifthpart = function () {
             botui.message.add({
                 delay: 1E3,
-                ccontent: "我都表白了~还不叫我好友呀~![](https://tva1.sinaimg.cn/large/006tNbRwly1gag0yv96m3j30jw0l8acc.jpg)"
+                content: "emmmm，毕竟我是个热爱生活热爱你的蓝孩纸"
             }).then(function () {
                 botui.message.add({
                     delay: 1600,
-                    ccontent: "那么扫码加好友![](https://tva1.sinaimg.cn/large/006tNbRwly1gag0yv96m3j30jw0l8acc.jpg)"
+                    content: "快加我好友和我深入交流吧，嘿嘿！![](https://tva1.sinaimg.cn/large/006tNbRwly1gag0yv96m3j30jw0l8acc.jpg)"
                 })
             })
         } 
