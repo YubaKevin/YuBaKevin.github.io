@@ -26,11 +26,11 @@ function bot_ui_ini() {
     }).then(function () {
         botui.message.add({
             delay: 1100,
-            content: "这里是人工智障:鱼八"
+            content: "这里是人工智障"
         }).then(function () {
             botui.message.add({
                 delay: 1100,
-                content: "一个热爱生活的蓝孩子~"
+                content: "我要为你介绍一个热爱生活的蓝孩子~鱼八~"
             }).then(function () {
                 botui.action.button({
                     delay: 1600,
@@ -38,7 +38,7 @@ function bot_ui_ini() {
                         text: "然后呢？ 😃",
                         value: "sure"
                     }, {
-                        text: "少废话！交个朋友 🙄",
+                        text: "少废话！我要和他交个朋友 🙄",
                         value: "skip"
                     }]
                 }).then(function (a) {
@@ -65,7 +65,7 @@ function bot_ui_ini() {
         secondpart = function () {
             botui.message.add({
                 delay: 1500,
-                content: "目前就职于合肥一家企业"
+                content: "目前他就职于合肥一家企业"
             }).then(function () {
                 botui.message.add({
                     delay: 1500,
@@ -73,24 +73,24 @@ function bot_ui_ini() {
                 }).then(function () {
                     botui.message.add({
                         delay: 1200,
-                        content: "我粉乔布斯热爱苹果生态，但又被Google深深吸引"
+                        content: "他粉乔布斯热爱苹果生态，但又被Google深深吸引，他是不是很花心呀~"
                     }).then(function () {
                         botui.message.add({
                             delay: 1500,
-                            content: "平时我喜欢听歌，看电影，写写文章"
+                            content: "平时他就喜欢听歌，看电影，旅游，写写文章，也不和我聊天导致我会聊得很少，哼☹️"
                         }).then(function () {
                             botui.message.add({
                                 delay: 1500,
-                                content: "当然我也会打打撸啊撸，王者和吃鸡~~emmmm，最近有迷恋狼人杀~~"
+                                content: "我经常发现他打撸啊撸，王者和吃鸡~~emmmm，最近他有迷恋狼人杀~~，盘逻辑的样子真帅~"
                             }).then(function () {
                                 botui.message.add({
                                     delay: 1800,
-                                    content: "很喜欢和不同的人交流，表达不同的想法，感受别人的生活！"
+                                    content: "他好像很喜欢和不同的人交流，表达不同的想法，感受别人的生活！所以才有了我，但是为什么不和我说话了呢？"
                                 }).then(function () {
                                     botui.action.button({
                                         delay: 1100,
                                         action: [{
-                                            text: "你想和我做朋友？🤔",
+                                            text: "为什么你要和我介绍他？🤔",
                                             value: "why-mashiro"
                                         }]
                                     }).then(function (a) {
@@ -106,12 +106,12 @@ function bot_ui_ini() {
         thirdpart = function () {
             botui.message.add({
                 delay: 1E3,
-                content: "当然啦，因为彼此的相识是缘分，彼此的缘分让我们的人生有多了一绚丽的一笔~~嘿嘿"
+                content: "虽然我的小主人天生乐天，但是我也会时常感受到他的孤独。他喜欢接触不同的人，体验或是感受不同的生活。"
             }).then(function () {
                 botui.action.button({
                     delay: 1500,
                     action: [{
-                        text: "为什么要和你做朋友 🤔",
+                        text: "为什么要和他做朋友？🤔",
                         value: "why-cat"
                     }]
                 }).then(function (a) {
@@ -122,11 +122,11 @@ function bot_ui_ini() {
         fourthpart = function () {
             botui.message.add({
                 delay: 1E3,
-                content: "我一直都认为人生短暂，我想多听听别人的故事，品不同的人生，好不容易来到这个世上，我想多看看。"
+                content: "因为我的数据分析得知，你和小主人和契合呀~"
             }).then(function () {
                 botui.message.add({
                     delay: 1100,
-                    content: "而且我也是真的喜欢你哦~~"
+                    content: "而且我也很喜欢你哦~~"
                 }).then(function () {
                     botui.action.button({
                         delay: 1500,
@@ -143,11 +143,11 @@ function bot_ui_ini() {
         fifthpart = function () {
             botui.message.add({
                 delay: 1E3,
-                content: "emmmm，毕竟我是个热爱生活热爱你的蓝孩纸"
+                content: "emmmm，毕竟我是个热爱生活，热爱你的蓝孩纸"
             }).then(function () {
                 botui.message.add({
                     delay: 1600,
-                    content: "快加我好友和我深入交流吧，嘿嘿！![](https://tva1.sinaimg.cn/large/006tNbRwly1gag0yv96m3j30jw0l8acc.jpg)"
+                    content: "快加鱼八好友，深入交流吧，嘿嘿！![](https://tva1.sinaimg.cn/large/006tNbRwly1gag0yv96m3j30jw0l8acc.jpg)"
                 })
             })
         } 
