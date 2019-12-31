@@ -143,7 +143,7 @@ function bot_ui_ini() {
         fifthpart = function () {
             botui.message.add({
                 delay: 1E3,
-                content: "emmmm，毕竟我是个热爱生活热爱你的蓝孩纸"
+                ccontent: "我都表白了~还不叫我好友呀~![](https://tva1.sinaimg.cn/large/006tNbRwly1gag0yv96m3j30jw0l8acc.jpg)"
             }).then(function () {
                 botui.message.add({
                     delay: 1600,
