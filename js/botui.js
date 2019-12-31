@@ -26,11 +26,11 @@ function bot_ui_ini() {
     }).then(function () {
         botui.message.add({
             delay: 1100,
-            content: "这里是人工智障:鱼八"
+            content: "这里是 Mashiro"
         }).then(function () {
             botui.message.add({
                 delay: 1100,
-                content: "一个热爱生活的蓝孩子~"
+                content: "一个可爱的蓝孩子~"
             }).then(function () {
                 botui.action.button({
                     delay: 1600,
@@ -38,7 +38,7 @@ function bot_ui_ini() {
                         text: "然后呢？ 😃",
                         value: "sure"
                     }, {
-                        text: "少废话！交个朋友 🙄",
+                        text: "少废话！ 🙄",
                         value: "skip"
                     }]
                 }).then(function (a) {
@@ -59,38 +59,38 @@ function bot_ui_ini() {
         end = function () {
             botui.message.add({
                 delay: 600,
-                content: "扫码加好友![](https://tva1.sinaimg.cn/large/006tNbRwly1gag0yv96m3j30jw0l8acc.jpg)"
+                content: "![...](https://view.moezx.cc/images/2018/05/06/a1c4cd0452528b572af37952489372b6.md.jpg)"
             })
         },
         secondpart = function () {
             botui.message.add({
                 delay: 1500,
-                content: "目前就职于合肥一家企业"
+                content: "目前就读于上海财经大学"
             }).then(function () {
                 botui.message.add({
                     delay: 1500,
-                    content: "正努力朝着一名真正的Coder努力"
+                    content: "向往技术却误入商科，但后来喜欢上了经济学…"
                 }).then(function () {
                     botui.message.add({
                         delay: 1200,
-                        content: "我粉乔布斯热爱苹果生态，但又被Google深深吸引"
+                        content: "因为数据分析也需要Coder嘛"
                     }).then(function () {
                         botui.message.add({
                             delay: 1500,
-                            content: "平时我喜欢听歌，看电影，写写文章"
+                            content: "主攻 R 语言和 Python，略懂 STATA，偶尔也折腾 HTML/CSS/JavaScript/PHP"
                         }).then(function () {
                             botui.message.add({
                                 delay: 1500,
-                                content: "当然我也会打打撸啊撸，王者和吃鸡~~emmmm，最近有迷恋狼人杀~~"
+                                content: "研究的方向，是经济/金融方向的数据分析（data science）以及机器学习（machine learning）"
                             }).then(function () {
                                 botui.message.add({
                                     delay: 1800,
-                                    content: "很喜欢和不同的人交流，表达不同的想法，感受别人的生活！"
+                                    content: "喜欢画画，希望有一天能够被称为画师"
                                 }).then(function () {
                                     botui.action.button({
                                         delay: 1100,
                                         action: [{
-                                            text: "你想和我做朋友？🤔",
+                                            text: "为什么叫Mashiro呢？ 🤔",
                                             value: "why-mashiro"
                                         }]
                                     }).then(function (a) {
@@ -106,12 +106,12 @@ function bot_ui_ini() {
         thirdpart = function () {
             botui.message.add({
                 delay: 1E3,
-                content: "当然啦，因为彼此的相识是缘分，彼此的缘分让我们的人生有多了一绚丽的一笔~~嘿嘿"
+                content: "Mashiro以及站名都来自一部动画，因为和主角有一样的爱好~ 如果有兴趣可以找找首页上的视频~"
             }).then(function () {
                 botui.action.button({
                     delay: 1500,
                     action: [{
-                        text: "为什么要和你做朋友 🤔",
+                        text: "为什么是白猫呢？ 🤔",
                         value: "why-cat"
                     }]
                 }).then(function (a) {
@@ -122,16 +122,16 @@ function bot_ui_ini() {
         fourthpart = function () {
             botui.message.add({
                 delay: 1E3,
-                content: "我一直都认为人生短暂，我想多听听别人的故事，品不同的人生，好不容易来到这个世上，我想多看看。"
+                content: "因为对GitHub有种执念… "
             }).then(function () {
                 botui.message.add({
                     delay: 1100,
-                    content: "而且我也是真的喜欢你哦~~"
+                    content: "而且我真的是猫控！"
                 }).then(function () {
                     botui.action.button({
                         delay: 1500,
                         action: [{
-                            text: "你居然和我表白了？(ง •_•)ง",
+                            text: "域名有什么含意吗？(ง •_•)ง",
                             value: "why-domain"
                         }]
                     }).then(function (a) {
@@ -143,11 +143,11 @@ function bot_ui_ini() {
         fifthpart = function () {
             botui.message.add({
                 delay: 1E3,
-                content: "emmmm，毕竟我是个热爱生活热爱你的蓝孩纸"
+                content: "emmmm，看备案信息你就知道了=.= 本来想要zheng.xin的，但50万真买不起。。"
             }).then(function () {
                 botui.message.add({
                     delay: 1600,
-                    ccontent: "那么扫码加好友![](https://tva1.sinaimg.cn/large/006tNbRwly1gag0yv96m3j30jw0l8acc.jpg)"
+                    content: "那么，仔细看看我的博客吧？ ^_^"
                 })
             })
         } 
