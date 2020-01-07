@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
   
-  <title itemprop="name">EventBUS的使用 | YuBa</title>
+  <title itemprop="name">面试指南 | YuBa</title>
   
     <link rel="shortcut icon" href="https://tva1.sinaimg.cn/large/006tNbRwly1gaf34a97qwj303c03cjr8.jpg">
   
@@ -350,88 +350,38 @@
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
           <header class="entry-header">
-            <h1 class="entry-title">EventBUS的使用</h1>
+            <h1 class="entry-title">面试指南</h1>
             <p class="entry-census">鱼八&nbsp;·&nbsp;2020-1-2&nbsp;·&nbsp;<span id="busuanzi_value_page_pv"></span>次阅读</p></p>
 
             <hr>
           </header>
         
         <div class="entry-content">
-          <h1 id="EventBus"><a href="#EventBus" class="headerlink" title="EventBus"></a>EventBus</h1><p>有过了解EventBus的同学都知道，EventBus 是一个Android 优化的 publish / subscribe 消息事件总线<br> 简化了应用程序各个组件间、组件与后台线程间的通信。如：Activities Framents Threads Services<br>如果你之前没有了解过可以点击此处去了解一下。<br> <a href="https://github.com/greenrobot/EventBus" target="_blank" rel="noopener">EventBus is a publish/subscribe event bus for Android and Java.</a></p>
-<hr>
-<p>现在我们知道EventBus是用于处理消息事件的，让组件与组件，组件与服务之间消息的传递变得更加简单。当然在我们学习了解使用EventBus之前，我们首先了解一下常规的事件传递方式。</p>
-<h2 id="一、事件的传递"><a href="#一、事件的传递" class="headerlink" title="一、事件的传递"></a>一、事件的传递</h2><h3 id="1-常规事件的传递"><a href="#1-常规事件的传递" class="headerlink" title="1.常规事件的传递"></a>1.常规事件的传递</h3><p><strong>在过去我们常使用以下的事件传递方式</strong></p>
-<ul>
-<li>Intent 跳转 + 传参 （局限性大）</li>
-<li>Handler 通常用来更新主线程的UI，使用不当容易出现内存泄漏</li>
-<li>Interface 接口，仅限于同一线程中数据交互</li>
-<li>BroadCastReceiver 有序广播+无序广播</li>
-<li>AIDL 夸进程通信 阅读较难，维护成本高</li>
-<li>其他方式，比如本地存储等</li>
+          <h1 id="面试指南"><a href="#面试指南" class="headerlink" title="面试指南"></a>面试指南</h1><blockquote>
+<p>在经历了俩年的沉寂后，我决定踏上漫漫的面试之路。总结一下网上面试题和资料吧</p>
+</blockquote>
+<h2 id="一、UI"><a href="#一、UI" class="headerlink" title="一、UI"></a>一、UI</h2><ul>
+<li>1.UI的绘制流程 测绘3部曲</li>
+<li>2.事件分发机制</li>
+<li>3.屏幕适配</li>
+<li>4.recycleView</li>
+<li>5.阿里vlayout</li>
 </ul>
-<p>由于这些方式或多或少都存着一定的问题，所以我们现在选择使用了EventBUS，<strong>它简化了应用程序内各个组件之间进行通信的复杂度，尤其是碎片之间进行通信的问题，可以避免由于使用广播通信而带来的诸多不便。</strong></p>
-<p>###2. EventBus 事件的传递<br><strong>现在我们使用EventBus来替代这些方式</strong><br>eg: 比如网络请求，在返回时通过Handler或者BroadCastReceiver 通知更新主线程UI ， 在N个Fragment之间需要通过listener 通信。这些都可以通过EventBus来实现。</p>
-<p>在官网中，我们可以看到这样一张图：<br> <img src="./1576482284608.png" alt="eventBus"><br>Publisher 发布者 —&gt; 使用post方式 发送Event事件 —&gt; 通过EventBus 匹配所有订阅的方法，匹配到以后在发送出去Event —&gt;到 Subscriber 订阅者那里也就是执行了 OnEvent()事件。 </p>
-<p>了解了EventBus 事件模型后，我们在来看看EventBus的基本使用：</p>
-<h4 id="2-1EventBus的基本使用"><a href="#2-1EventBus的基本使用" class="headerlink" title="2.1EventBus的基本使用"></a>2.1EventBus的基本使用</h4><p>在使用EventBus之前 我们需要先添加依赖：</p>
-<pre><code>implementation &#39;org.greenrobot:eventbus:3.1.1&#39;
-</code></pre><h5 id="2-1-1-普通事件"><a href="#2-1-1-普通事件" class="headerlink" title="2.1.1 普通事件"></a>2.1.1 普通事件</h5><ul>
-<li>首先我们需要先定义发送的事件。<pre><code>public static class MessageEvent { /* Additional fields if needed */ }
-</code></pre></li>
-<li>然后订阅该事件 <pre><code>//订阅方法的事件 是 需要 和发送的事件相匹配的。
-//例如这里是 MessageEvent 事件，那么只有post MessageEvent事件，该订阅事件才会被执行。
-@(3.架构师)  
-public void onMessageEvent(MessageEvent event) {/* Do something */};
-</code></pre><ul>
-<li>接着我们在当前注册和反注册<br>注册<pre><code>@Override
-public void onStart() {
- super.onStart();
- EventBus.getDefault().register(this);
-}
-</code></pre></li>
+<h2 id="二、架构"><a href="#二、架构" class="headerlink" title="二、架构"></a>二、架构</h2><ul>
+<li>1.MVC、MVP</li>
+<li>2.Handler源码</li>
+<li>3.EventBus的优化使用</li>
+<li>4.Glide</li>
+<li>5.okhttp</li>
+<li>6.手写动态换肤</li>
 </ul>
-</li>
-<li>反注册<pre><code>@Override
-public void onStop() {
-   super.onStop();
-   EventBus.getDefault().unregister(this);
-}
-</code></pre></li>
-<li>最后我们在需要发送事件的地方，发送事件<pre><code>EventBus.getDefault().post(new MessageEvent());
-</code></pre></li>
+<h3 id="三、性能优化"><a href="#三、性能优化" class="headerlink" title="三、性能优化"></a>三、性能优化</h3><ul>
+<li>1.app启动</li>
+<li>2.黑白屏</li>
+<li>3.UI渲染流程以及优化</li>
 </ul>
-<h5 id="2-1-2-粘性事件"><a href="#2-1-2-粘性事件" class="headerlink" title="2.1.2 粘性事件"></a>2.1.2 粘性事件</h5><p>前面是EventBus最基本的使用。但实际上EventBus还有一个事件是<strong><code>粘性事件</code></strong>，主要作用是用于延时消费 或者未初始化界面。发送事件后，当界面初始化完成后，才会接收到事件。</p>
-<pre><code>//订阅方法的事件 是 需要 和发送的事件相匹配的。
-//例如这里是 MessageEvent 事件，那么只有post MessageEvent事件，该订阅事件才会被执行。
+<h2 id="持续更新中……"><a href="#持续更新中……" class="headerlink" title="持续更新中……"></a>持续更新中……</h2><p>To be continued…</p>
 
-//这里是粘性事件，在@Subscribe 中 加入 sticky = true 
-@Subscribe(threadMode = ThreadMode.MAIN,sticky = true)  
-public void onMessageEvent(MessageEvent event) {/* Do something */};
-</code></pre><p>发送粘性事件</p>
-<pre><code> EventBus.getDefault().postSticky(new MessageEvent());
-</code></pre><h5 id="2-1-3-事件的优先级"><a href="#2-1-3-事件的优先级" class="headerlink" title="2.1.3 事件的优先级"></a>2.1.3 事件的优先级</h5><p>如果俩个事件同时接收，<code>proprity</code> 数值越大，优先级越高，一般默认为0</p>
-<pre><code>@Subscribe(threadMode = ThreadMode.MAIN,priority = 1)  
-public void onMessageEvent(MessageEvent1 event) {/* Do something */};
-
-@Subscribe(threadMode = ThreadMode.MAIN,priority = 10)  
-public void onMessageEvent(MessageEvent2 event) {/* Do something */};
-</code></pre><h4 id="2-2-正确的使用EventBus"><a href="#2-2-正确的使用EventBus" class="headerlink" title="2.2 正确的使用EventBus"></a>2.2 正确的使用EventBus</h4><p>当我们按照以上方式写2个简单的Activity跳转发送事件，实际上是接收不到事件的（因为在A Activity跳转时执行了OnStop()方法，EventBus方法会被反注册，所以实际上订阅方法就不会被执行了。）。所以很多同学都在OnCreate方法里注册，在OnDestroy方法里反注册，再去发送事件，订阅事件就会被调用了。最终实现了EventBus最基本的使用。</p>
-<pre><code>  @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        EventBus.getDefault().register(this);
-    }
-</code></pre><pre><code>@Override
-protected void onDestroy() {
-    super.onDestroy();
-    //这里养成良好的习惯
-    if (EventBus.getDefault().isRegistered(this)) {
-        EventBus.getDefault().unregister(this);
-    }
-}
-</code></pre><p><strong>那么这样使用就一定是正确的吗？</strong>，这样是可以实现，只能说是不优秀的，为什么呢？且看下文。</p>
-<h5 id="2-2-1"><a href="#2-2-1" class="headerlink" title="2.2.1"></a>2.2.1</h5>
         </div>
         <!-- .entry-content -->
         <div class="single-reward">
@@ -504,7 +454,7 @@ protected void onDestroy() {
           </div>
         </div>
         <hr>
-        <p><i class="iconfont icon-write"></i>一个好奇的人</p>
+        <p><i class="iconfont icon-write"></i>不知名程序猿</p>
       </section>
     </main><!-- #main -->
   </div><!-- #primary -->
